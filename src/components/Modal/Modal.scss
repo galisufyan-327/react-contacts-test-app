@@ -1,0 +1,36 @@
+@import "~bootstrap/scss/bootstrap";
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+
+.modal {
+    
+    &-dialog {
+        background-color: black;
+      height: 90vh;
+      z-index: 3;
+      position: fixed;
+      background-color: #fff; 
+      border-radius: 8px;
+      padding: 20px;
+      position: relative;
+    }
+
+    &-content {
+        height: 100%;
+    }
+
+    &-body {
+        overflow: hidden;
+        height: 80%;
+        text-decoration: none;
+    }
+}
+
+  .contact-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
