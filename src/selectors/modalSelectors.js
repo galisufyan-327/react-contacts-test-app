@@ -7,7 +7,7 @@ export const getFilteredProducts = createSelector(
   [selectProducts, selectCheckboxState],
   (products, checkBoxChecked) => {
     if (checkBoxChecked) {
-      return products.filter((product) => product.id % 2 === 0);
+      return products.filter((product) => product.id % 2 !== 0);
     }
     return products;
   }
