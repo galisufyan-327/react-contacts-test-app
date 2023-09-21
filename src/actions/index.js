@@ -33,7 +33,6 @@ export const closeModal = () => ({ type: CLOSE_MODAL });
 export const fetchContacts = (query, page, modalType) => {
   return (dispatch) => {
     dispatch(fetchContactsRequest());
-    console.log(modalType);
     let isLaptopsModal = modalType === "B";
 
     let url =
@@ -43,7 +42,6 @@ export const fetchContacts = (query, page, modalType) => {
 
     if (isLaptopsModal) {
       url = url + `category/laptops`;
-      console.log(url);
     }
 
     let params =

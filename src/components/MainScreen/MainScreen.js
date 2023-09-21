@@ -1,33 +1,35 @@
-import './main.scss'
-import Button from  '../Button/Button'
-import Modal from '../Modal/Modal'
-import { connect } from 'react-redux';
-import { openModal } from './../../actions/index';
-import { useEffect } from 'react';
+import "./main.scss";
+import Button from "../Button/Button";
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const MainScreen = ({ isOpen, openModal }) =>  {
-  useEffect(() => {
-  }, [isOpen]);
+const MainScreen = ({ isOpen }) => {
+  const navigate = useNavigate();
 
   return (
-    <div className={`${isOpen ? 'modal-backdrop' : ''}`}>
-      <div className='main-container'>
-        <Button text='Modal A' variant='a' onClick={() => openModal('A')} />
-        <Button text='Modal B' variant='b' onClick={() => openModal('B')}/>
+    <div className={`${isOpen ? "modal-backdrop" : ""}`}>
+      <div className="main-container">
+        <Button
+          text="Modal A"
+          variant="a"
+          onClick={() => {
+            navigate("/modal-a");
+          }}
+        />
+        <Button
+          text="Modal B"
+          variant="b"
+          onClick={() => {
+            navigate("/modal-b");
+          }}
+        />
       </div>
-        {isOpen && (
-          <Modal type="A" show={isOpen} />
-        )}
     </div>
-  )
+  );
 };
 
 const mapStateToProps = (state) => ({
   isOpen: state.modal.isOpen,
 });
 
-const mapDispatchToProps = {
-  openModal,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
+export default connect(mapStateToProps)(MainScreen);
